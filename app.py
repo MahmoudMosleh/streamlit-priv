@@ -68,7 +68,7 @@ max_year = int(df['ano-nascimento'].max())
 selected_year_range = st.sidebar.slider("Ano de Nascimento", min_value=min_year, max_value=max_year, value=(min_year, max_year))
 
 # Metric Selection
-selected_metric = st.sidebar.radio("Escolher Métrica", ["median", "mean"], index=0)
+#selected_metric = st.sidebar.radio("Escolher Métrica", ["median", "mean"], index=0)
 
 # Data Filtering
 filtered_df = df[(df['distrito'].isin(selected_districts)) & (df['tipologia'].apply(ast.literal_eval).explode().isin(selected_typologies))]
@@ -113,4 +113,5 @@ fig_map = px.choropleth(
 
 fig_map.update_geos(fitbounds="locations", visible=False, bgcolor="white")
 st.plotly_chart(fig_map, use_container_width=True)
+
 
